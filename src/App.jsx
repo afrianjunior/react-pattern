@@ -14,6 +14,7 @@ export default class App extends React.Component {
                   e.preventDefault();
                   const value = e.target.todo.value;
                   addTodo(value);
+                  e.target.todo.value = '';
                 }}
               >
                 <input type="text" name="todo" placeholder="todo" />
