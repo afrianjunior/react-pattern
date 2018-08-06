@@ -8,16 +8,21 @@ export default class App extends React.Component {
         <TodoLists>
           {({ todos, addTodo, deleteTodo }) => (
             <React.Fragment>
-              <div>{todos.map((todo, index) => 
-                <li>{todo} <button onClick={() => deleteTodo(index)}>delete</button></li>
-              )}</div>
+              <ul>
+                {todos.map((todo, index) => (
+                  <li key={index.toString()}>
+                    {todo}
+                    <button onClick={() => deleteTodo(index)}>delete</button>
+                  </li>
+                ))}
+              </ul>
               <form
                 onSubmit={e => {
                   e.preventDefault();
                   const { todo } = e.target;
                   const value = todo.value;
                   addTodo(value);
-                  todo.value = '';
+                  todo.value = "";
                 }}
               >
                 <input type="text" name="todo" placeholder="todo" />

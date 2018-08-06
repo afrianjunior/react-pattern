@@ -7,18 +7,16 @@ export default class TodoLists extends React.Component {
       todos: todos.concat(todo),
     }));
   }
-  deleteTodo = (key) => {
+  deleteTodo = (todoIndex) => {
     this.setState(({ todos }) => ({
-      todos: todos.filter((todo, index) => {
-        return index !== key
-      })
-    }))
+      todos: todos.filter((todo, index) => index !== todoIndex)
+    }));
   }
   render() {
     return this.props.children({
       todos: this.state.todos,
       addTodo: this.addTodo,
-      deleteTodo: this.deleteTodo
+      deleteTodo: this.deleteTodo,
     })
   }
 }
