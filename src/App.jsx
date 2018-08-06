@@ -1,5 +1,16 @@
 import React from "react";
 import TodoLists from "./TodoLists";
+import styled from "styled-components";
+
+const Button = styled.button`
+  display: inline-block;
+  background-color: tomato;
+  padding: .5em .8em;
+  color: white;
+  border-radius: 4px;
+  border: 0;
+  margin-left: 5px;
+`;
 
 export default class App extends React.Component {
   render() {
@@ -12,7 +23,7 @@ export default class App extends React.Component {
                 {todos.map((todo, index) => (
                   <li key={index.toString()}>
                     {todo}
-                    <button onClick={() => deleteTodo(index)}>delete</button>
+                    <Button onClick={() => deleteTodo(index)}>delete</Button>
                   </li>
                 ))}
               </ul>
