@@ -12,8 +12,10 @@ export default class App extends React.Component {
               <form
                 onSubmit={e => {
                   e.preventDefault();
-                  const value = e.target.todo.value;
+                  const { todo } = e.target;
+                  const value = todo.value;
                   addTodo(value);
+                  todo.value = '';
                 }}
               >
                 <input type="text" name="todo" placeholder="todo" />
