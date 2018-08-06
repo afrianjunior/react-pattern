@@ -6,9 +6,11 @@ export default class App extends React.Component {
     return (
       <div>
         <TodoLists>
-          {({ todos, addTodo }) => (
+          {({ todos, addTodo, deleteTodo }) => (
             <React.Fragment>
-              <div>{todos.map(todo => todo)}</div>
+              <div>{todos.map((todo, index) => 
+                <li>{todo} <button onClick={() => deleteTodo(index)}>delete</button></li>
+              )}</div>
               <form
                 onSubmit={e => {
                   e.preventDefault();
